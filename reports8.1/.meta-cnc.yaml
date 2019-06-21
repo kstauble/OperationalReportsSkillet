@@ -77,10 +77,10 @@ variables:
 # files will load in the order listed
 snippets:
   - name: op-directional
-    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir'
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir']
     file: op-directional.xml
   - name: op-enterprise
-    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-ent'
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-ent']
     file: op-enterprise.xml
 # ---------------------------------------------------------------------
 # end of snippets section
