@@ -82,5 +82,8 @@ snippets:
   - name: op-enterprise
     xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-ent']/reports
     file: op-enterprise.xml
+  - name: email
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='Sample_Email_Profile']/log-settings/email
+    file: email.xml
 # ---------------------------------------------------------------------
 # end of snippets section
