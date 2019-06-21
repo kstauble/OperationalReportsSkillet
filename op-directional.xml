@@ -1,0 +1,283 @@
+ <entry name="operational-dir">
+          <devices/>
+          <reports>
+            <entry name="Daily Inbound Allowed Threats">
+              <period>last-calendar-day</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Daily Inbound Allowed Threats</caption>
+              <query>((zone.src eq {{ internet_facing_zone }}) and (zone.dst neq {{ internet_facing_zone }}) and (addr.src notin {{ excluded_external_subnet_1 }}) and (addr.src notin {{ excluded_external_subnet_2 }}) and (addr.src notin {{ excluded_external_subnet_3 }})) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action eq alert) or (action eq allow)) and ((threat-type eq virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <description>Threats allow into your network from the Internet (geq medium)</description>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>rule</group-by>
+                  <aggregate-by>
+                    <member>threatid</member>
+                    <member>category-of-threatid</member>
+                    <member>subtype</member>
+                    <member>app</member>
+                    <member>direction</member>
+                    <member>severity</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Weekly Inbound Allowed Threats">
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Weekly Inbound Allowed Threats</caption>
+              <query>((zone.src eq {{ internet_facing_zone }}) and (zone.dst neq {{ internet_facing_zone }}) and (addr.src notin {{ excluded_external_subnet_1 }}) and (addr.src notin {{ excluded_external_subnet_2 }}) and (addr.src notin { excluded_external_subnet_3 }})) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action eq alert) or (action eq allow)) and ((threat-type eq virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>rule</group-by>
+                  <aggregate-by>
+                    <member>threatid</member>
+                    <member>category-of-threatid</member>
+                    <member>subtype</member>
+                    <member>app</member>
+                    <member>direction</member>
+                    <member>severity</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Daily Internal Allowed Threats">
+              <period>last-calendar-day</period>
+              <topn>500</topn>
+              <topm>10</topm>
+              <caption>Daily Internal Allowed Threats</caption>
+              <query>(((zone.src neq {{ internet_facing_zone }}) and (zone.dst neq {{ internet_facing_zone }})) or ((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and ((addr.dst in {{ excluded_external_subnet_1 }}) or (addr.dst in {{ excluded_external_subnet_2 }}) or (addr.dst in {{ excluded_external_subnet_3 }}))) or ((zone.src eq {{ internet_facing_zone }})  and (zone.dst neq {{ internet_facing_zone }}) and ((addr.src in {{ excluded_external_subnet_1 }}) or (addr.src in {{ excluded_external_subnet_2 }}) or (addr.src in {{ excluded_external_subnet_3 }})))) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action eq alert) or (action eq allow)) and ((threat-type eq virus) or (threat-type eq wildfire-virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>threatid</member>
+                    <member>category-of-threatid</member>
+                    <member>subtype</member>
+                    <member>app</member>
+                    <member>direction</member>
+                    <member>severity</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+              <description>Threats allowed on your internal network (geq medium)</description>
+            </entry>
+            <entry name="Weekly Internal Allowed Threats">
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>10</topm>
+              <caption>Weekly Internal Allowed Threats</caption>
+              <query>(((zone.src neq {{ internet_facing_zone }}) and (zone.dst neq {{ internet_facing_zone }})) or ((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and ((addr.dst in {{ excluded_external_subnet_1 }}) or (addr.dst in {{ excluded_external_subnet_2 }}) or (addr.dst in {{ excluded_external_subnet_3 }}))) or ((zone.src eq {{ internet_facing_zone }})  and (zone.dst neq {{ internet_facing_zone }}) and ((addr.src in {{ excluded_external_subnet_1 }}) or (addr.src in {{ excluded_external_subnet_2 }}) or (addr.src in {{ excluded_external_subnet_3 }})))) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action eq alert) or (action eq allow)) and ((threat-type eq virus) or (threat-type eq wildfire-virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>threatid</member>
+                    <member>category-of-threatid</member>
+                    <member>subtype</member>
+                    <member>app</member>
+                    <member>direction</member>
+                    <member>severity</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Daily Outbound Allowed Threats">
+              <period>last-calendar-day</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Daily Outbound Allowed Threats</caption>
+              <query>((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and (addr.dst notin {{ excluded_external_subnet_1 }}) and (addr.dst notin {{ excluded_external_subnet_2 }}) and (addr.dst notin {{ excluded_external_subnet_3 }})) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action eq alert) or (action eq allow)) and ((threat-type eq virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <description>Threats leaving your network successfully (medium and higher)</description>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>rule</group-by>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>dstloc</member>
+                    <member>threatid</member>
+                    <member>direction</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Weekly Outbound Allowed Threats">
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Weekly Outbound Allowed Threats</caption>
+              <query>((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and (addr.dst notin {{ excluded_external_subnet_1 }}) and (addr.dst notin {{ excluded_external_subnet_2 }}) and (addr.dst notin {{ excluded_external_subnet_3 }})) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action eq alert) or (action eq allow)) and ((threat-type eq virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>rule</group-by>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>dstloc</member>
+                    <member>threatid</member>
+                    <member>direction</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Daily Outbound Denied Threats">
+              <period>last-calendar-day</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Daily Outbound Denied Threats</caption>
+              <query>((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and (addr.dst notin {{ excluded_external_subnet_1 }}) and (addr.dst notin {{ excluded_external_subnet_2 }}) and (addr.dst notin {{ excluded_external_subnet_3 }})) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action neq alert) and (action neq allow)) and ((threat-type eq virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <description>Threats successfully denied from leaving your network (medium and higher)</description>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>rule</group-by>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>dstloc</member>
+                    <member>threatid</member>
+                    <member>direction</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Daily Internal Denied Threats">
+              <period>last-calendar-day</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Daily Internal Denied Threats</caption>
+              <query>(((zone.src neq {{ internet_facing_zone }}) and (zone.dst neq {{ internet_facing_zone }})) or ((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and ((addr.dst in {{ excluded_external_subnet_1 }}) or (addr.dst in {{ excluded_external_subnet_2 }}) or (addr.dst in {{ excluded_external_subnet_3 }}))) or ((zone.src eq {{ internet_facing_zone }})  and (zone.dst neq {{ internet_facing_zone }}) and ((addr.src in {{ excluded_external_subnet_1 }}) or (addr.src in {{ excluded_external_subnet_2 }}) or (addr.src in {{ excluded_external_subnet_3 }})))) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action neq alert) and (action neq allow)) and ((threat-type eq virus) or (threat-type eq wildfire-virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <description>Threats successfully denied from leaving your network (medium and higher)</description>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>severity</group-by>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>dstloc</member>
+                    <member>threatid</member>
+                    <member>rule</member>
+                    <member>direction</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Weekly Internal Denied Threats">
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Weekly Internal Denied Threats</caption>
+              <query>(((zone.src neq {{ internet_facing_zone }}) and (zone.dst neq {{ internet_facing_zone }})) or ((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and ((addr.dst in {{ excluded_external_subnet_1 }}) or (addr.dst in {{ excluded_external_subnet_2 }}) or (addr.dst in {{ excluded_external_subnet_3 }}))) or ((zone.src eq {{ internet_facing_zone }})  and (zone.dst neq {{ internet_facing_zone }}) and ((addr.src in {{ excluded_external_subnet_1 }}) or (addr.src in {{ excluded_external_subnet_2 }}) or (addr.src in {{ excluded_external_subnet_3 }})))) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action neq alert) and (action neq allow)) and ((threat-type eq virus) or (threat-type eq wildfire-virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>severity</group-by>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>dstloc</member>
+                    <member>threatid</member>
+                    <member>rule</member>
+                    <member>direction</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Weekly Inbound Denied Threats">
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Weekly Inbound Denied Threats</caption>
+              <query>((zone.src eq {{ internet_facing_zone }}) and (zone.dst neq {{ internet_facing_zone }}) and (addr.src notin {{ excluded_external_subnet_1 }}) and (addr.src notin {{ excluded_external_subnet_2 }}) and (addr.src notin {{ excluded_external_subnet_3 }})) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action neq alert) and (action neq allow)) and ((threat-type eq virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>rule</group-by>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>dstloc</member>
+                    <member>threatid</member>
+                    <member>direction</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>
+            <entry name="Weekly Outbound Denied Threats">
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Weekly Outbound Denied Threats</caption>
+              <query>((zone.src neq {{ internet_facing_zone }}) and (zone.dst eq {{ internet_facing_zone }}) and (addr.dst notin {{ excluded_external_subnet_1 }}) and (addr.dst notin {{ excluded_external_subnet_2 }}) and (addr.dst notin {{ excluded_external_subnet_3 }})) and (app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and ((action neq alert) and (action neq allow)) and ((threat-type eq virus) or (((threat-type eq spyware) or (threat-type eq vulnerability)) and (severity geq medium)))</query>
+              <frequency>daily</frequency>
+              <type>
+                <panorama-threat>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>rule</group-by>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>dstloc</member>
+                    <member>threatid</member>
+                    <member>direction</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-threat>
+              </type>
+            </entry>

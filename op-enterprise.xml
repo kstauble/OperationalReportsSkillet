@@ -1,0 +1,237 @@
+<entry name="operational-ent">
+          <devices/>
+          <reports>
+            <entry name="Daily Malicious Categories">
+              <type>
+                <panorama-url>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>srcuser</member>
+                    <member>from</member>
+                    <member>xff</member>
+                    <member>category</member>
+                    <member>action</member>
+                    <member>device_name</member>
+                    <member>vsys_name</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-url>
+              </type>
+              <period>last-calendar-day</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Daily Malicious Categories</caption>
+              <frequency>daily</frequency>
+              <query>(category eq command-and-control) or (category eq hacking) or (category eq malware) or (category eq phishing)</query>
+              <description>Hosts visiting C&amp;C, Malware, Hacking or Phishing URL Categories</description>
+            </entry>
+            <entry name="Weekly Malicious Categories">
+              <type>
+                <panorama-url>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>srcuser</member>
+                    <member>from</member>
+                    <member>xff</member>
+                    <member>category</member>
+                    <member>action</member>
+                    <member>device_name</member>
+                    <member>vsys_name</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-url>
+              </type>
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Weekly Malicious Categories</caption>
+              <frequency>daily</frequency>
+              <query>(category eq command-and-control) or (category eq hacking) or (category eq malware) or (category eq phishing)</query>
+            </entry>
+            <entry name="Daily Suspicious Categories">
+              <type>
+                <panorama-url>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>src</group-by>
+                  <aggregate-by>
+                    <member>srcuser</member>
+                    <member>from</member>
+                    <member>xff</member>
+                    <member>category</member>
+                    <member>action</member>
+                    <member>device_name</member>
+                    <member>vsys_name</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-url>
+              </type>
+              <period>last-calendar-day</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Daily Suspicious Categories</caption>
+              <frequency>daily</frequency>
+              <query>(category eq dynamic-dns) or (category eq parked) or (category eq unknown)</query>
+              <description>Hosts visiting Dynamic-DNS, Parked, Unknown URL Categories</description>
+            </entry>
+            <entry name="Weekly Suspicious Categories">
+              <type>
+                <panorama-url>
+                  <sortby>repeatcnt</sortby>
+                  <group-by>src</group-by>
+                  <aggregate-by>
+                    <member>srcuser</member>
+                    <member>from</member>
+                    <member>xff</member>
+                    <member>category</member>
+                    <member>action</member>
+                    <member>device_name</member>
+                    <member>vsys_name</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-url>
+              </type>
+              <period>last-7-calendar-days</period>
+              <topn>500</topn>
+              <topm>50</topm>
+              <caption>Weekly Suspicious Categories</caption>
+              <frequency>daily</frequency>
+              <query>(category eq dynamic-dns) or (category eq parked) or (category eq unknown)</query>
+              <description>Hosts visiting Dynamic-DNS, Parked, Unknown URL Categories</description>
+            </entry>
+            <entry name="Daily Sinkhole Clients">
+              <type>
+                <panorama-traffic>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>device_name</member>
+                    <member>vsys_name</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-traffic>
+              </type>
+              <period>last-calendar-day</period>
+              <topn>10000</topn>
+              <topm>50</topm>
+              <caption>Daily Sinkhole Clients</caption>
+              <frequency>daily</frequency>
+              <query>(addr.dst in 72.5.65.111)</query>
+              <description>Clients doing malicious DNS domain lookups</description>
+            </entry>
+            <entry name="Weekly Sinkhole Clients">
+              <type>
+                <panorama-traffic>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>from</member>
+                    <member>src</member>
+                    <member>srcuser</member>
+                    <member>device_name</member>
+                    <member>vsys_name</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-traffic>
+              </type>
+              <period>last-7-calendar-days</period>
+              <topn>10000</topn>
+              <topm>50</topm>
+              <caption>Weekly Sinkhole Clients</caption>
+              <frequency>daily</frequency>
+              <query>(addr.dst in 72.5.65.111)</query>
+              <description>Clients doing malicious DNS domain lookups</description>
+            </entry>
+            <entry name="Monthly Rules by Sesssions">
+              <type>
+                <panorama-traffic>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>rule</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                    <member>bytes</member>
+                  </values>
+                </panorama-traffic>
+              </type>
+              <period>last-calendar-month</period>
+              <topn>1000</topn>
+              <topm>10</topm>
+              <caption>Monthly Rules by Sesssions</caption>
+              <frequency>daily</frequency>
+              <query>(app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable)</query>
+              <description>Highest Volume Rules by Sessions</description>
+            </entry>
+            <entry name="Monthly Least Rules by Bytes">
+              <type>
+                <panorama-traffic>
+                  <sortby>bytes</sortby>
+                  <aggregate-by>
+                    <member>rule</member>
+                  </aggregate-by>
+                  <values>
+                    <member>bytes</member>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-traffic>
+              </type>
+              <period>last-calendar-month</period>
+              <topn>1000</topn>
+              <topm>10</topm>
+              <caption>Monthly Least Rules by Bytes</caption>
+              <frequency>daily</frequency>
+              <query>(app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable) and (bytes leq 10000)</query>
+              <description>Rules with no or little traffic</description>
+            </entry>
+            <entry name="Monthly Greatest Rules by Bytes">
+              <type>
+                <panorama-traffic>
+                  <sortby>bytes</sortby>
+                  <aggregate-by>
+                    <member>rule</member>
+                  </aggregate-by>
+                  <values>
+                    <member>bytes</member>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-traffic>
+              </type>
+              <period>last-calendar-month</period>
+              <topn>1000</topn>
+              <topm>10</topm>
+              <caption>Monthly Greatest Rules by Bytes</caption>
+              <frequency>daily</frequency>
+              <query>(app neq insufficient-data) and (app neq incomplete) and (app neq not-applicable)</query>
+            </entry>
+            <entry name="Monthly Rule Usage">
+              <type>
+                <panorama-traffic>
+                  <sortby>repeatcnt</sortby>
+                  <aggregate-by>
+                    <member>rule</member>
+                  </aggregate-by>
+                  <values>
+                    <member>repeatcnt</member>
+                  </values>
+                </panorama-traffic>
+              </type>
+              <period>last-calendar-month</period>
+              <topn>1000</topn>
+              <topm>10</topm>
+              <caption>Monthly Rule Usage</caption>
+              <frequency>daily</frequency>
+              <description>Summary of Rule Usage for Month</description>
+            </entry>
