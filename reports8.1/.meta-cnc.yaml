@@ -28,7 +28,7 @@ labels:
 # type_hints can be text, ip_address, or dropdown
 variables:
   - name: email_server_profile
-    description: A name to identify the server.
+    description: Enter a name to identify the server.
     default: emailserver
     type_hint: text
   - name: display_name
@@ -48,19 +48,19 @@ variables:
     default: toemail
     type_hint: text
   - name: internet_facing_zone
-    description: public access internet zone
+    description: Enter public access internet zone.
     default: internetfacing
     type_hint: text
   - name: excluded_external_subnet_1
-    description: Enter first external subnet
+    description: Enter first external subnet.
     default: firstsubnet
     type_hint: text
   - name: excluded_external_subnet_2
-    description: Enter second external subnet
+    description: Enter second external subnet.
     default: secondsubnet
     type_hint: text 
   - name: excluded_external_subnet_3
-    description: Enter third external subnet
+    description: Enter third external subnet.
     default: thirdsubnet
     type_hint: text
     dd_list: 
@@ -76,9 +76,9 @@ variables:
 # snippets used for api configuration including xpath and element as file name
 # files will load in the order listed
 snippets:
-  - name: op-directional
-    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir']/reports
-    file: op-directional.xml
+  # - name: op-directional
+  #   xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir']/reports
+  #   file: op-directional.xml 
   - name: op-enterprise
     xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-ent']/reports
     file: op-enterprise.xml
