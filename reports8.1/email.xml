@@ -4,5 +4,3 @@
                         <from>{{ from_email }}</from>
                         <to>{{ to_email }}</to>
                       </entry>
-                    </server>
-                  </entry>
