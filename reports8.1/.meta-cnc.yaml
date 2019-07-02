@@ -76,10 +76,10 @@ variables:
 # snippets used for api configuration including xpath and element as file name
 # files will load in the order listed
 snippets:
-  # - name: op-directional
-  #   xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir']/reports
-  #   file: op-directional.xml 
-  - name: op-enterprise
+  - name: op_directional
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir']/reports
+    file: op-directional.xml 
+  - name: op_enterprise
     xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-ent']/reports
     file: op-enterprise.xml
   - name: email
