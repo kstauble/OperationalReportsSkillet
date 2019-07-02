@@ -1,6 +1,3 @@
- <entry name="operational-dir">
-          <devices/>
-          <reports>
             <entry name="Daily Inbound Allowed Threats">
               <period>last-calendar-day</period>
               <topn>500</topn>
