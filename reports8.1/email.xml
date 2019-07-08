@@ -1,6 +1,0 @@
-                      <entry name="{{ email_server_profile }}">
-                        <display-name>{{ display_name }}</display-name>
-                        <gateway>{{ SMTP_IP }}</gateway>
-                        <from>{{ from_email }}</from>
-                        <to>{{ to_email }}</to>
-                      </entry>
