@@ -1,5 +1,5 @@
 # Skillet for Operational Reports and Processes
-This skillet is for operational reports.
+This skillet is for operational reports in order to review traffic on a regular basis to ensure that the best security possible is maintained. 
 
 ### Version Support
 This skillet supports version 8.1 or 9.0.
