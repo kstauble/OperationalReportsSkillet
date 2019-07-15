@@ -1,0 +1,94 @@
+# skillet preamble information used by panhandler
+# ---------------------------------------------------------------------
+# unique snippet name
+name: Skillet for Operational Reports and Processes
+# label used for menu selection
+label: operational_reports_skillet
+description: Operational Reports and Processes Config
+
+# type of device configuration
+# common types are panorama, panos, and template
+# https://github.com/PaloAltoNetworks/panhandler/blob/develop/docs/metadata_configuration.rst
+type: panos
+# preload static or default-based templates
+extends:
+
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - OperationalReports
+
+# ---------------------------------------------------------------------
+# end of preamble section
+
+# variables section
+# ---------------------------------------------------------------------
+# variables used in the configuration templates
+# type_hint defines the form field used by panhandler
+# type_hints can be text, ip_address, or dropdown
+variables:
+  - name: email_server_profile
+    description: Enter a name to identify the server.
+    default: emailserver
+    type_hint: text
+  - name: email_profile
+    description: Enter a name for the email profile.
+    default: emailprofile
+    type_hint: text
+  - name: display_name
+    description: Enter the name shown in the From field of the email.
+    default: displayname
+    type_hint: text
+  - name: SMTP_IP
+    description: Enter the IP address of the SMTP server used to send the email.
+    default: smtpip
+    type_hint: text
+  - name: from_email
+    description: Enter the From email address, such as security_alert@company.com.
+    default: fromemail
+    type_hint: text
+  - name: to_email
+    description: Enter the email address of the recipient.
+    default: toemail
+    type_hint: text
+  - name: internet_facing_zone
+    description: Enter public access internet zone.
+    default: internetfacing
+    type_hint: text
+  - name: excluded_external_subnet_1
+    description: Enter first external subnet.
+    default: firstsubnet
+    type_hint: text
+  - name: excluded_external_subnet_2
+    description: Enter second external subnet.
+    default: secondsubnet
+    type_hint: text 
+  - name: excluded_external_subnet_3
+    description: Enter third external subnet.
+    default: thirdsubnet
+    type_hint: text
+    dd_list: 
+      - key: option1
+        value: option1
+      - key: option2
+        value: option2
+# ---------------------------------------------------------------------
+# end of variables section
+
+# snippets section
+# ---------------------------------------------------------------------
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+snippets:
+  - name: op_directional
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir']/reports
+    file: op-directional.xml 
+  - name: op_enterprise
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-ent']/reports
+    file: op-enterprise.xml
+  - name: email
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='Sample_Email_Profile']/log-settings/email
+    file: email.xml
+
+  
+# end of snippets section
