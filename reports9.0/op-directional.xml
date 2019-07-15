@@ -60,7 +60,7 @@
             <frequency>daily</frequency>
             <type>
               <panorama-threat>
-             <sortby>repeatcnt</sortby>
+                <sortby>repeatcnt</sortby>
                 <aggregate-by>
                   <member>threatid</member>
                   <member>category-of-threatid</member>
@@ -199,6 +199,8 @@
                   <member>direction</member>
                 </aggregate-by>
                 <values>
+                  <member>repeatcnt</member>
+                </values>
               </panorama-threat>
             </type>
           </entry>
@@ -278,5 +280,4 @@
               </panorama-threat>
             </type>
           </entry>
-        </reports>
-      </entry>
+       
