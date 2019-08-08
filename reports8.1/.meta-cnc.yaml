@@ -4,7 +4,7 @@
 name: Skillet for Operational Reports and Processes
 # label used for menu selection
 label: operational_reports_skillet
-description: Operational Reports and Processes Config for 8.1
+description: Operational Reports and Processes Configuration for 8.1
 
 # type of device configuration
 # common types are panorama, panos, and template
@@ -16,7 +16,7 @@ extends:
 # grouping of like snippets for dynamic menu creation in panhandler
 labels:
   collection:
-    - OperationalReports
+    - OperationalReportsSkillet
 
 # ---------------------------------------------------------------------
 # end of preamble section
