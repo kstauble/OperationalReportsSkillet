@@ -73,9 +73,9 @@ variables:
     type_hint: dropdown
     dd_list:
       - key: Shared
-        value: '/config/shared/reports'
+        value: 'shared/reports'
       - key: Specific Device Group
-        value: "/config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='"
+        value: "devices/entry[@name='localhost.localdomain']/device-group/entry[@name='"
   - name: device_group_name
     description: If it is a specific Device Group, please enter the name.
     default: None
