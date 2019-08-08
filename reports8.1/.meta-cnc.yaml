@@ -43,10 +43,6 @@ variables:
     description: Enter the IP address of the SMTP server used to send the email.
     default: smtpip
     type_hint: text
-  - name: test
-    desription: test
-    default: test
-    type_hint: text
   - name: from_email
     description: Enter the From email address, such as security_alert@company.com.
     default: fromemail
