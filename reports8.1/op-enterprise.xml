@@ -34,7 +34,7 @@
                     <member>xff</member>
                     <member>category</member>
                     <member>action</member>
-                    <member>device_name</member>
+                    <member>{{ device_group }}</member>
                     <member>vsys_name</member>
                   </aggregate-by>
                   <values>
@@ -60,7 +60,7 @@
                     <member>xff</member>
                     <member>category</member>
                     <member>action</member>
-                    <member>device_name</member>
+                    <member>{{ device_group }}</member>
                     <member>vsys_name</member>
                   </aggregate-by>
                   <values>
@@ -87,7 +87,7 @@
                     <member>xff</member>
                     <member>category</member>
                     <member>action</member>
-                    <member>device_name</member>
+                    <member>{{ device_group }}</member>
                     <member>vsys_name</member>
                   </aggregate-by>
                   <values>
@@ -111,7 +111,7 @@
                     <member>from</member>
                     <member>src</member>
                     <member>srcuser</member>
-                    <member>device_name</member>
+                    <member>{{ device_group }}</member>
                     <member>vsys_name</member>
                   </aggregate-by>
                   <values>
@@ -135,7 +135,7 @@
                     <member>from</member>
                     <member>src</member>
                     <member>srcuser</member>
-                    <member>device_name</member>
+                    <member>{{ device_group }}</member>
                     <member>vsys_name</member>
                   </aggregate-by>
                   <values>

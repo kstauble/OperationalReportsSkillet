@@ -67,6 +67,25 @@ variables:
     description: Enter third external subnet.
     default: thirdsubnet
     type_hint: text
+  - name: device_group_type
+    description: Should the operational enterprise reports be put into the Shared or a specific Device Group in Panorama?
+    default: Shared
+    type_hint: dropdown
+    dd_list:
+      -key: 'Shared'
+       value: '/config/shared/reports'
+      -key: 'Specific Device Group'
+       value: "/config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='"
+  - name: device_group_name
+    description: If it is a specific Device Group, please enter the name.
+    default: None
+    type_hint: text
+  - name: device_group_dir
+    description: Enter destination device group for directional reports.
+    default: devicegroup
+    type_hint: text
+
+
     dd_list: 
       - key: option1
         value: option1
@@ -81,10 +100,10 @@ variables:
 # files will load in the order listed
 snippets:
   - name: op_directional
-    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-dir']/reports
+    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{ device_group_dir }}']/reports
     file: op-directional.xml 
   - name: op_enterprise
-    xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='operational-ent']/reports
+    xpath: /config/{{ device_group_type if device_group_type == '/config/shared/reports' else device_group_type ~ device_group_name ~ "']/reports" }}
     file: op-enterprise.xml
   - name: email
     xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='Sample_Email_Profile']/log-settings/email
