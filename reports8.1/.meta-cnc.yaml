@@ -1,9 +1,9 @@
 # skillet preamble information used by panhandler
 # ---------------------------------------------------------------------
 # unique snippet name
-name: Skillet for Operational Reports and Processes
+name: operational_reports_skillet_8.1
 # label used for menu selection
-label: operational_reports_skillet
+label: Operational Reports and Processes
 description: Operational Reports and Processes Configuration for 8.1
 
 # type of device configuration
